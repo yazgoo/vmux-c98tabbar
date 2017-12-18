@@ -1,5 +1,5 @@
 set showtabline=2
-if system("uname|tr '\n' ''") == "Darwin"
+if system("uname|tr -d '\n'") == "Darwin"
   let g:c98tabbar_theme = "mid"
 else
   let g:c98tabbar_theme = "bot"
