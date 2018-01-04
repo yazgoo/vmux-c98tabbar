@@ -14,7 +14,8 @@ function! g:TimeAndBattery()
     return l:s
 endfunction
 let g:c98tabbar_additional_callback = 'TimeAndBattery'
+
 function! C98TabBarRedraw(timer)
   let &ro=&ro
 endfunction
-timer_start(30000, 'C98TabBarRedraw', {"repeat": -1})
+let timer = timer_start(30000, 'C98TabBarRedraw', {"repeat": -1})
