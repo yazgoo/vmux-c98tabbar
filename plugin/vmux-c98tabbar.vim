@@ -8,7 +8,9 @@ let g:c98tabbar_redraw = 1
 function! g:TimeAndBattery()
     :WindsUp
     let l:s = ' %= '
-    let l:s .= g:windsup
+    if exists("g:windsup")
+      let l:s .= g:windsup
+    endif
     let l:s .= '%#TabLineSepnullinactive# '
     let l:s .= '%#TabLineSepinactiveinactive# '
     let l:s .= system("date '+%H:%M %m-%d' | tr -d '\n'")
