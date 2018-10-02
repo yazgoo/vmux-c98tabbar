@@ -6,8 +6,9 @@ else
 endif
 let g:c98tabbar_redraw = 1
 function! g:TimeAndBattery()
+    :WindsUp
     let l:s = ' %= '
-    " let l:s .= system("winds-up-client --cache --lpass --ultrashort | tr -d '\n'")
+    let l:s .= g:windsup
     let l:s .= '%#TabLineSepnullinactive# '
     let l:s .= '%#TabLineSepinactiveinactive# '
     let l:s .= system("date '+%H:%M %m-%d' | tr -d '\n'")
