@@ -6,7 +6,9 @@ else
 endif
 let g:c98tabbar_redraw = 1
 function! g:TimeAndBattery()
-    :WindsUp
+    if exists(":WindsUp")
+      :WindsUp
+    endif
     let l:s = ' %= '
     if exists("g:windsup")
       let l:s .= g:windsup
