@@ -18,7 +18,7 @@ function! g:TimeAndBattery()
     let l:s .= system("date '+%H:%M %m-%d' | tr -d '\n'")
     let l:s .= '%#TabLineSepinactiveinactive_mod# '
     let l:s .= '%#TabLineSepinactive_modinactive_mod# '
-    let l:s .= system("bat=$((which acpi 1>/dev/null 2>/dev/null && acpi || (which pmset 1>/dev/null 2>/dev/null && pmset -g batt))|grep -o '[0-9]*%' |sed 's/%//');if [ $bat -lt 10 ]; then echo -n '  '; elif [ $bat -lt 25 ];then echo -n '  '; elif [ $bat -lt 50 ]; then echo -n '  '; elif [ $bat -lt 75 ]; then echo -n '  '; else echo -n '  '; fi; echo $bat%")
+    let l:s .= system("bat=$((which acpi 1>/dev/null 2>/dev/null && acpi || (which pmset 1>/dev/null 2>/dev/null && pmset -g batt))|grep -o '[0-9]*%' |sed 's/%//');if [ -n \"$bat\" ]; if [ $bat -lt 10 ]; then echo -n '  '; elif [ $bat -lt 25 ];then echo -n '  '; elif [ $bat -lt 50 ]; then echo -n '  '; elif [ $bat -lt 75 ]; then echo -n '  '; else echo -n '  '; fi; echo $bat%; fi")
     let l:s .= '%% '
     return l:s
 endfunction
